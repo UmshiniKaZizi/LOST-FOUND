@@ -15,6 +15,8 @@ public class InputManager : MonoBehaviour
         motor = GetComponent<PlayerMotor>();
         look = GetComponent<PlayerLook>();
         onFoot.Jump.performed += ctx => motor.Jump();
+        onFoot.Crouch.performed += ctx => motor.Crouch();
+        onFoot.Sprint.performed += ctx => motor.Sprint();
 
     }
     // Start is called once before the fi   rst execution of Update after the MonoBehaviour is created
@@ -31,7 +33,7 @@ public class InputManager : MonoBehaviour
 
         void LateUpdate()
     {
-        
+        look.ProcessLook(onFoot.Look.ReadValue<Vector2>());
     }
     private void OnEnable()
     {
