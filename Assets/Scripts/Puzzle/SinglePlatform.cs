@@ -28,8 +28,9 @@ public class SimplePlatformTutorial : MonoBehaviour
         previousPosition = transform.position;
     }
 
-    void Update()
+    void LateUpdate()
     {
+        
         Move();
     }
 

@@ -63,10 +63,11 @@ public class PlayerMotor : MonoBehaviour
         controller.Move(currentPlatform.GetDelta());
 }
 
-    public void Jump()
-    {
-        playerVelocity.y = Mathf.Sqrt(jumpHeight * -3.0f* gravity);
-    }
+   public void Jump()
+{
+    if (!isGrounded) return;
+    playerVelocity.y = Mathf.Sqrt(jumpHeight * -3.0f * gravity);
+}
 
     public void Crouch()
     {
